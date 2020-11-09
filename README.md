@@ -1,4 +1,4 @@
-# Discord 3 Strike Warning System
+# Discord VC Monitor Webhooks
 
 ## Table of Contents
 
@@ -7,6 +7,7 @@
     - [Prerequisites](#getting_started)
     - [Inviting The Bot To Your Server](#invite)
     - [Granting Permissions](#perms)
+    - [Configuring Webhooks](#webhooks)
     - [Environment Variables](#env_var)
     - [Installing](#installing)
 - [Running](#running)
@@ -93,10 +94,15 @@ __The following permissions are requried to run:__
 - __Send Messages__ :heavy_check_mark:
 
 
-# Environment Variables <a name = "env_var"></a>
+# Configuring Webhooks <a name = "hooks"></a>
 
-This bot is ***highly customizable***
------
+This bot requires you to set up your webhooks so that the name of the webhook should resemble exactly the name of the Voice Channel it is supposed to monitor. See the image below:
+<img src="./1.png">
+
+The bot will find all the webhooks you create in your guild and will take the names of them. If a user joins or leaves a voice channel with the same name as one of your webhooks, a message will be sent to the coresponding text channel.
+
+
+# Environment Variables <a name = "env_var"></a>
 The environment variables listed below are stored in your __pw.env__ file. You will notice a single file that exists within the root directory of this codebase called __pw.envEXAMPLE.__ Here is where you can customize your bot. The only requirements are that you input the correct token for your bot and ACTIVITY_TYPE is limited to only 3 choices. Besides those limitations, you have a number of variables to choose from to make the bot fit your server's personality. See below for definitions of what they all mean.
 
 -----
@@ -106,7 +112,6 @@ __SET_USERNAME__ The username you wish your bot to display.\
 __ACTIVITY_TYPE__ Must be set to either PLAYING, LISTENING 
 or WATCHING for the bot to function correctly as defined [here](https://discord.js.org/#/docs/main/stable/typedef/ActivityType). This bot __does not allow__ for a user to use the STREAMING or CUSTOM_STATUS activity types.\
 __ACTIVITY_NAME__ Displays along with the activity type.\
-
 __STATUS__ The status the bot wil display. Either set to 'dnd', 'idle', 'invisible', or 'online'.\
 __GUILD__ The guild the bot should fetch existing webhooks from.
 
